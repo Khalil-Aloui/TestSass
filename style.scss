@@ -1,0 +1,65 @@
+
+@use 'variables';
+@use 'mixins';
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: variables.$font-family;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;  background: linear-gradient(135deg, #d8b4fe, #fef3c7);
+}
+
+.profile-card {
+  background-color: variables.$card-bg;
+  width: 320px;
+  border-radius: 15px;
+  box-shadow: variables.$shadow;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .profile-img {
+    width: 100%;
+    height: 220px;
+    border-bottom: 4px solid variables.$secondary-color;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+  }
+
+  .profile-info {
+    padding: 25px;
+    text-align: center;
+
+    h2 {
+      color: variables.$text-color;
+      margin: 0 0 8px;
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    p {
+      color: darken(variables.$secondary-color, 20%); // Doré assombri
+      margin: 0 0 15px;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-primary {
+      @include mixins.button-style(variables.$primary-color, variables.$white);
+    }
+  }
+}
